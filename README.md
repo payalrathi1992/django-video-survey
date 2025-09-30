@@ -13,37 +13,15 @@ will be able to migrate your data from an ancient version of `django-survey`, bu
 been ported to python 3, and you can export results as CSV or PDF using your native
 language.
 
-Professional support for django-survey-and-report is available as part of the
-[Tidelift Subscription](https://tidelift.com/subscription/pkg/pypi-django-survey-and-report?utm_source=pypi-django-survey-and-report&utm_medium=referral&utm_campaign=enterprise)
-
 ## Table of contents
 
-- [Language available](#language-available)
 - [Getting started](#getting-started)
 - [Making a survey](#making-a-survey)
 - [Generating a pdf report from the survey's result](#generating-a-pdf-report-from-the-surveys-result)
   - [Basic example](#basic-example)
-  - [Sankey's diagram](#sankey-diagram)
   - [Advanced example](#advanced-example)
   - [Implementing a custom treatment](#implementing-a-custom-treatment)
-- [Credit](#credits)
 
-## Language available
-
-The software is developed in english. Other available languages are :
-
-- [x] Brazilian-Portuguese thanks to [Rafael Capaci](https://github.com/capaci)
-- [x] Chinese thanks to [朱聖黎 (Zhu Sheng Li)](https://github.com/digglife/)
-- [x] French thanks to [Pierre Sassoulas](https://github.com/Pierre-Sassoulas/)
-- [x] German thanks to [Georg Elsas](https://github.com/gjelsas)
-- [x] Indonesian thanks to [Dhana Dhira](https://github.com/ddhira123)
-- [x] Japanese thanks to [Nobukuni Suzue](https://github.com/nsuzue/)
-- [x] Spanish thanks to [Javier Ordóñez](https://github.com/ordonja/)
-- [x] Russian thanks to [Vlad M.](https://github.com/manchos/)
-- [x] Polish thanks to [Daniel Horner](https://github.com/d-horner/)
-- [x] Dutch thanks to [John Guyver](https://github.com/JohnGuyver117)
-- [x] Turkish thanks to [Hüseyin Emre Armağan](https://github.com/Telomeraz)
-- [x] Greek thanks to [Sotirios Zogos](https://github.com/sotiriszogos)
 
 ## Getting started
 
@@ -179,22 +157,6 @@ The pdf is then generated using the very good pgf-pie library.
 
 ![The generated pdf for the cloud and inside options](doc/report_2.png "The generated pdf for the cloud and inside options")
 
-### Sankey diagram
-
-If you installed python3-tk, you can also show the relation between two questions using
-a sankey diagram :
-
-```yaml
-"Lorem ipsum dolor sit amët, <strong> consectetur </strong> adipiscing elit.":
-  chart:
-    type: sankey
-    question: "Dolor sit amët, consectetur<strong>  adipiscing</strong>  elit."
-```
-
-You get this as a result:
-
-![The generated pdf for the sankey example](doc/sankey.png "The generated pdf for the sankey example")
-
 ### Advanced example
 
 You can also limit the answers shown by cardinality, filter them, group them together
@@ -270,22 +232,4 @@ For a full example of a configuration file look at `example_conf.yaml` in doc, y
 also generate your configuration file with `python manage.py generatetexconf -h`, it
 will create the default skeleton for every survey and question.
 
-To guide you during the python development, you can read:
 
-- The default reporter for PieChart in `Question2TexChart` :
-  https://github.com/Pierre-Sassoulas/django-survey/blob/master/survey/exporter/tex/question2tex_chart.py#L13
-- The Sankey reporter in `Question3TexSankey` :
-  https://github.com/Pierre-Sassoulas/django-survey/blob/master/survey/exporter/tex/question2tex_sankey.py#L15
-- The Raw reporter in `Question2TexRax` :
-  https://github.com/Pierre-Sassoulas/django-survey/blob/master/survey/exporter/tex/question2tex_raw.py.
-
-Do not hesitate to make a pull request with your new exporter if it can be of interest
-for others I'll integrate it.
-
-## Credits
-
-Based on [jessykate's django-survey](https://github.com/jessykate/django-survey), and
-contribution by jibaku, joshualoving, and ijasperyang in forks of jessykate's project.
-
-We use [anazalea's pySankey](https://github.com/anazalea/pySankey) for sankey's diagram
-during reporting.
